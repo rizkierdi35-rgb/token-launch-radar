@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="top">
+  <div>
+    <h1>TOKEN RADAR <span class="ver">radar-2</span></h1>
+    <p class="sub">Pre-token protocols, ranked by what their launch would be worth — from the snapshot's own figures, not from a list of names.</p>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+<nav class="tabs" id="tabs">
+  <button data-tab="board" class="on">Board</button>
+  <button data-tab="live">Live comps</button>
+  <button data-tab="method">Model &amp; method</button>
+</nav>
+<section class="controls" id="controls">
+  <input id="q" type="search" placeholder="Search name or slug…" aria-label="Search protocols">
+  <select id="cat" aria-label="Category"></select>
+  <select id="chain" aria-label="Chain"></select>
+  <label class="chk"><input id="watch" type="checkbox"> Watchlist only</label>
+  <select id="sort" aria-label="Sort by">
+    <option value="implied">Sort: implied value</option>
+    <option value="tvl">Sort: TVL</option>
+    <option value="growth">Sort: 7-day change</option>
+    <option value="age">Sort: age</option>
+    <option value="name">Sort: name</option>
+  </select>
+</section>
+<main id="board" tabindex="-1">
+  <p class="count" id="count"></p>
+  <table id="tbl">
+    <thead><tr>
+      <th data-k="rank">#</th><th data-k="name">Protocol</th><th data-k="category">Category</th>
+      <th data-k="chains">Chains</th><th data-k="tvl">TVL</th><th data-k="growth">7d</th>
+      <th data-k="age">Age</th><th data-k="implied">Implied value</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="note" id="tblnote"></p>
+</main>
+<section id="live" class="panel" hidden>
+  <h2>Live comps — protocols whose token already trades</h2>
+  <p>These set the sector multiples. Each row shows the market's own value (market cap), never a model's claim. The board never mixes them into the ranking.</p>
+  <table id="livetbl">
+    <thead><tr><th>Protocol</th><th>Category</th><th>TVL</th><th>Market cap</th><th>FDV / TVL</th></tr></thead>
+    <tbody id="liverows"></tbody>
+  </table>
+</section>
+<section id="method" class="panel" hidden>
+  <h2>Model radar-2 — how an implied value is built</h2>
+  <div id="methodbody"></div>
+</section>
+<aside id="detail" class="detail" hidden aria-label="Protocol detail"></aside>
+<footer>
+  <p><strong>What “pre-token” means here:</strong> the protocol's DefiLlama record carries no market cap, no CoinGecko id and no symbol — it <em>records</em> no token. That is not proof it has none. Wrapped, staked and bridged products of tokens that already trade are kept off this board, as are exchanges and versioned pools.</p>
+  <p>Implied value is this entry's own claim, from the snapshot as of the date shown. It does not predict whether or when a token is issued. Farm steps are a starting plan, not financial advice: check the protocol's own pages before you move funds, never pay to claim, and never share a seed phrase.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
